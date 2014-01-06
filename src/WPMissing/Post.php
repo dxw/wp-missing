@@ -17,7 +17,7 @@ class Post {
       case 'html_content':
       global $post;
       $old_post = $post;
-      setup_postdata(get_post($this->_post));
+      setup_postdata($this->_post);
       $return = get_the_content();
       $post = $old_post;
       return $return;
