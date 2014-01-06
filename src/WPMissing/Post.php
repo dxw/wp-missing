@@ -10,10 +10,6 @@ class Post {
 
   function __get($name) {
     switch ($name) {
-      case 'id':
-      return $this->id;
-      break;
-
       case 'title':
       return get_the_title($this->id);
       break;
@@ -28,6 +24,8 @@ class Post {
       break;
     }
 
+    $trace = debug_backtrace();
+    trigger_error(sprintf('Undefined property via __get(): %s in %s on line %s'), $name, $trace[0]['file'], $trace[0]['line'], E_USER_ERROR);
     return null;
   }
 }
