@@ -16,5 +16,8 @@
         "psr-0": {
             "WPMissing": "src/"
         }
+    },
+    "require": {
+        "dxw/php-missing": "dev-master"
     }
 }
