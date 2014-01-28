@@ -49,7 +49,23 @@ class Pagination {
 
   function numbers($context, $show_first_last) {
     $numbers = [];
-    for ($i = $this->paged - $context; $i <= $this->paged + $context; $i++) {
+
+    $min = $this->paged - $context;
+    $max = $this->paged + $context;
+
+    if ($min < 1) {
+      $x = -$min;
+      $max += $x;
+      $min += $x;
+    }
+
+    if ($max > $this->query->max_num_pages) {
+      $x = $this->query->max_num_pages - $max;
+      $max += $x;
+      $min += $x;
+    }
+
+    for ($i = $min; $i <= $max; $i++) {
       if ($i > 0 && $i <= $this->query->max_num_pages) {
         $current = $i === $this->paged;
         $numbers[] = sprintf('<span>%s</span>', $this->link_for($i));
