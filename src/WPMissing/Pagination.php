@@ -5,7 +5,7 @@ namespace WPMissing;
 class Pagination {
   function __construct($query) {
     $this->query = $query;
-    $this->paged = ($this->query->get('paged')) ? $this->query->get('paged') : 1;
+    $this->paged = ($this->query->get('paged')) ? (int)$this->query->get('paged') : 1;
   }
 
   // have_*
@@ -31,10 +31,15 @@ class Pagination {
   // link_*
 
   function link_for($i, $text=null) {
+    $i = (int)$i; // This is neccessary because apparently $i tends to be a double
+
     if ($text === null) {
       $text = $i;
     }
-    return sprintf('<a href="%s">%s</a>', esc_attr($this->uri_for($i)), esc_html($text));
+
+    $current = ($i === $this->paged) ? ' class="current" ' : '';
+
+    return sprintf('<span %s><a href="%s">%s</a></span>', $current, esc_attr($this->uri_for($i)), esc_html($text));
   }
 
   function link_previous($text=null) {
@@ -67,8 +72,7 @@ class Pagination {
 
     for ($i = $min; $i <= $max; $i++) {
       if ($i > 0 && $i <= $this->query->max_num_pages) {
-        $current = $i === $this->paged;
-        $numbers[] = sprintf('<span>%s</span>', $this->link_for($i));
+        $numbers[] = $this->link_for($i);
       }
     }
 
