@@ -3,7 +3,7 @@
 namespace WPMissing;
 
 class Util {
-  static function excerpt($text, $length, $more='') {
+  static function excerpt($text, $length, $more='…') {
 
     $text = strip_shortcodes( $text );
 
