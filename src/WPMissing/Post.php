@@ -11,7 +11,19 @@ class Post {
   function __get($name) {
     switch ($name) {
       case 'title':
-      return get_the_title($this->id);
+      return $this->_post->post_title;
+      break;
+
+      case 'url':
+      return get_permalink($this->id);
+      break;
+
+      case 'created_at':
+      return $this->_post->post_date_gmt;
+      break;
+
+      case 'updated_at':
+      return $this->_post->post_modified_gmt;
       break;
 
       case 'html_content':
@@ -27,5 +39,21 @@ class Post {
     $trace = debug_backtrace();
     trigger_error(sprintf('Undefined property via __get(): %s in %s on line %s'), $name, $trace[0]['file'], $trace[0]['line'], E_USER_ERROR);
     return null;
+  }
+
+  function created_at($format, $else, $tz=null) {
+    if ($tz === null) {
+      $tz = get_option('timezone_string');
+    }
+
+    return \Missing\Date::strftime($this->created_at, $format, $else, $tz);
+  }
+
+  function updated_at($format, $else, $tz=null) {
+    if ($tz === null) {
+      $tz = get_option('timezone_string');
+    }
+
+    return \Missing\Date::strftime($this->updated_at, $format, $else, $tz);
   }
 }
