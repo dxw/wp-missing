@@ -26,6 +26,10 @@ class Post {
       return $this->_post->post_modified_gmt;
       break;
 
+      case 'author':
+      return get_user_by('id', $this->_post->post_author);
+      break;
+
       case 'html_content':
       global $post;
       $old_post = $post;
