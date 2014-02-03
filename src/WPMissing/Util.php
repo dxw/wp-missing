@@ -13,4 +13,12 @@ class Util {
 
     return $text;
   }
+
+  static function strftime($date_string, $format, $else, $tz=null) {
+    if ($tz === null) {
+      $tz = get_option('timezone_string');
+    }
+
+    return \Missing\Date::strftime($date_string, $format, $else, $tz);
+  }
 }

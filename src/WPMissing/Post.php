@@ -42,18 +42,10 @@ class Post {
   }
 
   function created_at($format, $else, $tz=null) {
-    if ($tz === null) {
-      $tz = get_option('timezone_string');
-    }
-
-    return \Missing\Date::strftime($this->created_at, $format, $else, $tz);
+    return \WPMissing\Util::strftime($this->created_at, $format, $else, $tz);
   }
 
   function updated_at($format, $else, $tz=null) {
-    if ($tz === null) {
-      $tz = get_option('timezone_string');
-    }
-
-    return \Missing\Date::strftime($this->updated_at, $format, $else, $tz);
+    return \WPMissing\Util::strftime($this->updated_at, $format, $else, $tz);
   }
 }
