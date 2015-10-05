@@ -23,6 +23,6 @@ class Util {
       }
     }
 
-    return \Missing\Date::strftime($date_string, $format, $else, $tz);
+    return \Missing\Dates::strftime($date_string, $format, $else, $tz);
   }
 }
