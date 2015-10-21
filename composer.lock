@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "c34c5c4325e28fc2317fd29dec10ad46",
+    "hash": "b8efeedc118186a2a5e13ec471121096",
     "packages": [
         {
             "name": "dxw/php-missing",
@@ -11,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dxw/php-missing.git",
-                "reference": "52efbacd07b663a604a0c1634bea35acc86a9dfa"
+                "reference": "72eb09d968b42a2069df1aa2168647e017bfe696"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dxw/php-missing/zipball/52efbacd07b663a604a0c1634bea35acc86a9dfa",
-                "reference": "52efbacd07b663a604a0c1634bea35acc86a9dfa",
+                "url": "https://api.github.com/repos/dxw/php-missing/zipball/72eb09d968b42a2069df1aa2168647e017bfe696",
+                "reference": "72eb09d968b42a2069df1aa2168647e017bfe696",
                 "shasum": ""
             },
             "type": "library",
@@ -38,23 +39,17 @@
             ],
             "description": "The stdlib you wish PHP had",
             "homepage": "https://github.com/dxw/php-missing",
-            "time": "2014-01-16 15:00:21"
+            "time": "2015-10-02 18:21:11"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "dxw/php-missing": 20
     },
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
 }
