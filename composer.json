@@ -18,6 +18,6 @@
         }
     },
     "require": {
-        "dxw/php-missing": "dev-master"
+        "dxw/php-missing": "^1.0"
     }
 }
